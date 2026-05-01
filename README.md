@@ -1,6 +1,7 @@
 # Cross-Layer ELD Attack Propagation Model
 
-A Monte Carlo simulation demonstrating that single-layer ELD security monitoring is insufficient against cross-layer attacks. Attackers exploiting alternate paths can bypass monitored layers entirely, rendering single-layer defenses ineffective despite high detection rates.
+A Monte Carlo simulation demonstrating that single-layer ELD security monitoring is insufficient against cross-layer attacks. 
+Attackers exploiting alternate paths can bypass monitored layers entirely, rendering single-layer defenses ineffective despite high detection rates.
 
 ## Hypothesis
 
@@ -8,11 +9,11 @@ A Monte Carlo simulation demonstrating that single-layer ELD security monitoring
 
 ## Key Results
 
-| Scenario | Success Rate | Detection Rate | Change from Baseline |
-|----------|-------------|----------------|---------------------|
-| Baseline | 34.9% | 28.9% | — |
-| Single-Layer | 34.9% | 45.3% | **0% reduction** |
-| Cross-Layer | 21.2% | 86.7% | **-39% reduction** |
+| Scenario     | Success Rate | Detection Rate | Change from Baseline |
+|--------------|--------------|----------------|----------------------|
+| Baseline     |    34.9%     |     28.9%      |          —           |
+| Single-Layer |    34.9%     |     45.3%      | **0% reduction**     |
+| Cross-Layer  |    21.2%     |     86.7%      | **-39% reduction**   |
 
 Single-layer defense achieves 87.7% detection on Layer 2 (CAN bus) but **zero reduction** in attack success because 63% of attacks take the alt-path bypass that never traverses Layer 2.
 
@@ -24,9 +25,9 @@ Six nodes across three layers:
 
 ```
 Layer 1 (Wireless Entry)     Layer 2 (Vehicle Bus)        Layer 3 (Backend)
-┌─────────────┐              ┌─────────────┐              ┌─────────────┐
+┌─────────────┐              ┌─────────────┐              ┌─────────────-┐        ┌────────────-┐
 │ wifi_recon  │──────────────│ eld_firmware│──────────────│telematics_api│────────│cloud_backend│
-└─────────────┘              └──────┬──────┘              └─────────────┘        └─────────────┘
+└─────────────┘              └──────┬──────┘              └─────────────-┘        └─────────────┘
                                     │                            ▲
                                     ▼                            │
                              ┌─────────────┐              ┌─────────────┐
@@ -42,12 +43,12 @@ SIR epidemic model simulating worm spread across truck fleet at a truck stop. In
 
 ### Literature Grounding
 
-| Layer | Parameter | Value | Source |
-|-------|-----------|-------|--------|
-| Layer 1 | p=0.85 | WiFi exploitation success | Jepson et al. 2024 |
-| Layer 2 | p=0.90 | J1939 injection (no auth) | Murvay & Groza 2018 |
-| Layer 2 | d=0.30 | Best IDS detection rate | Jichici et al. 2024 |
-| Layer 3 | p, d | Conservative assumptions | Research gap (flagged) |
+| Layer   | Parameter | Value                     | Source                 |
+|---------|-----------|---------------------------|------------------------|
+| Layer 1 | p=0.85    | WiFi exploitation success | Jepson et al. 2024     |
+| Layer 2 | p=0.90    | J1939 injection (no auth) | Murvay & Groza 2018    |
+| Layer 2 | d=0.30    | Best IDS detection rate   | Jichici et al. 2024    |
+| Layer 3 | p, d      | Conservative assumptions  | Research gap (flagged) |
 
 ## Setup
 
@@ -78,9 +79,9 @@ python run_all.py
 ```
 
 This runs:
-1. H3 worm propagation → `outputs/worm_output.json`
+1. H3 worm propagation         → `outputs/worm_output.json`
 2. H1 attack graph Monte Carlo → `outputs/simulation_results.json`
-3. Figure generation → `outputs/figures/`
+3. Figure generation           → `outputs/figures/`
 
 ### Step-by-Step
 
@@ -106,14 +107,14 @@ pytest tests/ -v
 
 ## Output Figures
 
-| Figure | Description |
-|--------|-------------|
-| `fig1_scenario_comparison.png` | Success vs detection rate bar chart |
-| `fig2_worm_propagation.png` | SIR curves for H3 worm spread |
-| `fig3_layer_detection.png` | Per-layer detection rate heatmap |
-| `fig4_path_frequencies.png` | Attack path selection (main vs alt-path) |
-| `fig5_ttc_cdf.png` | CDF of time-to-compromise |
-| `fig6_sensitivity.png` | Sensitivity analysis varying Layer 3 p |
+| Figure                         | Description                              |
+|--------------------------------|------------------------------------------|
+| `fig1_scenario_comparison.png` | Success vs detection rate bar chart      |
+| `fig2_worm_propagation.png`    | SIR curves for H3 worm spread            |
+| `fig3_layer_detection.png`     | Per-layer detection rate heatmap         |
+| `fig4_path_frequencies.png`    | Attack path selection (main vs alt-path) |
+| `fig5_ttc_cdf.png`             | CDF of time-to-compromise                |
+| `fig6_sensitivity.png`         | Sensitivity analysis varying Layer 3 p   |
 
 ## Sensitivity Analysis
 
@@ -121,11 +122,11 @@ Layer 3 parameters are explicitly flagged as research gaps. The sensitivity anal
 
 | Layer 3 p | Baseline | Single-Layer | Cross-Layer |
 |-----------|----------|--------------|-------------|
-| 0.50 | 17.5% | 17.5% | 11.0% |
-| 0.60 | 25.3% | 25.3% | 15.9% |
-| 0.70 | 34.9% | 34.9% | 20.4% |
-| 0.80 | 45.4% | 45.4% | 26.7% |
-| 0.90 | 58.6% | 58.6% | 34.9% |
+|   0.50    | 17.5%    | 17.5%        | 11.0%       |
+|   0.60    | 25.3%    | 25.3%        | 15.9%       |
+|   0.70    | 34.9%    | 34.9%        | 20.4%       |
+|   0.80    | 45.4%    | 45.4%        | 26.7%       |
+|   0.90    | 58.6%    | 58.6%        | 34.9%       |
 
 Baseline and single-layer are **identical** across all values — confirming the alt-path bypass renders single-layer defense ineffective regardless of Layer 3 assumptions.
 
@@ -192,7 +193,7 @@ All parameters are in `config.json`:
 
 ## References
 
-- Jepson et al. 2024 — ELD WiFi exploitation demonstration
+- Jepson et al.  2024 — ELD WiFi exploitation demonstration
 - Murvay & Groza 2018 — J1939 protocol security analysis
 - Jichici et al. 2024 — Physics-aware CAN bus IDS
-- Rogers et al. — CAN Conditioner defense mechanism
+- Rogers et al.       — CAN Conditioner defense mechanism
