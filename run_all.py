@@ -2,7 +2,7 @@
 run_all.py
 ----------
 Runs the full simulation pipeline in order:
-  1. H3 worm propagation  -> outputs/worm_output.json
+  1. H2 worm propagation  -> outputs/worm_output.json
   2. H1 attack graph      -> outputs/simulation_results.json
   3. All four figures     -> outputs/figures/
 
@@ -15,7 +15,7 @@ import sys
 import os
 
 STEPS = [
-    ("H3 — Worm propagation",       ["h3_worm/run_worm.py"]),
+    ("H2 — Worm propagation",       ["h2_worm/run_worm.py"]),
     ("H1 — Attack graph simulation", ["h1_attack_graph/run_simulation.py"]),
     ("Figures — Generate all",       ["figures/generate_all.py"]),
 ]

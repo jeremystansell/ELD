@@ -3,9 +3,9 @@ worm_model.py
 -------------
 SIR epidemic model for ELD worm propagation across a truck-stop fleet.
 
-Models Jepson et al.'s truck-to-truck WiFi worm vector in a spatial setting.
-Trucks are placed in a truck-stop layout; infection spreads between trucks
-within WiFi range of an already-infected truck.
+Models Jepson's truck-to-truck WiFi worm vector in a spatial setting.
+Trucks are placed in a truck-stop layout; 
+infection spreads between trucks within WiFi range of an already-infected truck.
 
 States:
   S — Susceptible  : uninfected, vulnerable ELD

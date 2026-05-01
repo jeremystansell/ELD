@@ -72,7 +72,7 @@ def fig1_scenario_comparison(sim_results):
                     ha='center', va='bottom', fontsize=9)
 
     plt.tight_layout()
-    plt.savefig(os.path.join(OUTPUT_DIR, "fig1_scenario_comparison.png"), dpi=150)
+    plt.savefig(os.path.join(OUTPUT_DIR, "fig1_scenario_comparison.png"), dpi=300)
     plt.close()
     print("  Saved fig1_scenario_comparison.png")
 
@@ -102,9 +102,9 @@ def fig2_worm_propagation(worm_output):
             ax.set_ylabel("Number of Trucks")
             ax.legend(loc="upper right")
 
-    plt.suptitle("H3: Worm Propagation in Truck Stop Fleet (SIR Model)", fontsize=12, y=1.02)
+    plt.suptitle("H2: Worm Propagation in Truck Stop Fleet (SIR Model)", fontsize=12, y=1.02)
     plt.tight_layout()
-    plt.savefig(os.path.join(OUTPUT_DIR, "fig2_worm_propagation.png"), dpi=150, bbox_inches="tight")
+    plt.savefig(os.path.join(OUTPUT_DIR, "fig2_worm_propagation.png"), dpi=300, bbox_inches="tight")
     plt.close()
     print("  Saved fig2_worm_propagation.png")
 
@@ -139,7 +139,7 @@ def fig3_layer_detection(sim_results):
     cbar.ax.set_ylabel("Detection Rate (%)", rotation=-90, va="bottom")
 
     plt.tight_layout()
-    plt.savefig(os.path.join(OUTPUT_DIR, "fig3_layer_detection.png"), dpi=150)
+    plt.savefig(os.path.join(OUTPUT_DIR, "fig3_layer_detection.png"), dpi=300)
     plt.close()
     print("  Saved fig3_layer_detection.png")
 
@@ -184,7 +184,7 @@ def fig4_path_frequencies(sim_results):
     ax.set_ylim(0, 105)
 
     plt.tight_layout()
-    plt.savefig(os.path.join(OUTPUT_DIR, "fig4_path_frequencies.png"), dpi=150)
+    plt.savefig(os.path.join(OUTPUT_DIR, "fig4_path_frequencies.png"), dpi=300)
     plt.close()
     print("  Saved fig4_path_frequencies.png")
 
@@ -223,7 +223,7 @@ def fig5_ttc_cdf():
     ax.set_ylim(0, 1)
 
     plt.tight_layout()
-    plt.savefig(os.path.join(OUTPUT_DIR, "fig5_ttc_cdf.png"), dpi=150)
+    plt.savefig(os.path.join(OUTPUT_DIR, "fig5_ttc_cdf.png"), dpi=300)
     plt.close()
     print("  Saved fig5_ttc_cdf.png")
 
@@ -231,7 +231,7 @@ def fig5_ttc_cdf():
 def fig6_sensitivity():
     """
     Sensitivity analysis: vary Layer 3 p from 0.5 to 0.9 and show
-    cross-layer advantage holds across the range.
+    cross-layer advantage holds across the rangee
 
     This addresses the documented uncertainty in Layer 3 parameters.
     """
@@ -277,7 +277,7 @@ def fig6_sensitivity():
     ax.text(0.675, 55, "Assumed\nrange", ha='center', fontsize=9, color='gray')
 
     plt.tight_layout()
-    plt.savefig(os.path.join(OUTPUT_DIR, "fig6_sensitivity.png"), dpi=150)
+    plt.savefig(os.path.join(OUTPUT_DIR, "fig6_sensitivity.png"), dpi=300)
     plt.close()
     print("  Saved fig6_sensitivity.png")
 

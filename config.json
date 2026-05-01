@@ -17,7 +17,7 @@
       "detection_multiplier": 1.0
     },
     "single_layer": {
-      "description": "Bus-only defense — Rogers et al. CAN Conditioners on Layer 2",
+      "description": "Bus-only defense — CAN Conditioners on Layer 2",
       "layer2_detection_override": 0.85
     },
     "cross_layer": {

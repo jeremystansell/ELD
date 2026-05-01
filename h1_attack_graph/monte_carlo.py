@@ -18,6 +18,7 @@ Key design decisions:
     because a real defender still needs to respond.
   - H3 integration: if worm_output is provided, the per-timestep trial rate scales
     with the number of infected trucks, creating a realistic entry funnel.
+  - TODO Remove debug flags
 """
 
 import json
@@ -74,7 +75,7 @@ class ScenarioResults:
 def compute_path_weights(G: nx.DiGraph, paths: list[list[str]]) -> np.ndarray:
     """
     Assign selection weight to each path proportional to its cumulative
-    transition probability. Rational attacker prefers the highest-p path.
+    transition probability. Rational attacker prefers the higghest-p path
     """
     weights = []
     for path in paths:
@@ -185,7 +186,7 @@ def run_scenario(
     paths = get_all_attack_paths(G)
     path_weights = compute_path_weights(G, paths)
 
-    # H3 integration: build per-trial entry rate multiplier
+    # H2 integration: build per-trial entry rate multiplier
     if worm_output is not None:
         trial_weights = _build_worm_trial_weights(worm_output, n_trials)
     else:

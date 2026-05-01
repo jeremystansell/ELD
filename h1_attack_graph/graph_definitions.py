@@ -38,7 +38,7 @@ NODES = {
     "eld_firmware": {
         "layer": 1,
         "label": "ELD firmware access",
-        "description": "Unauthorized firmware upload via exposed web interface (Jepson et al.)",
+        "description": "Unauthorized firmware upload via exposed web interface (Jepson)",
     },
     "j1939_bus": {
         "layer": 2,
@@ -217,7 +217,7 @@ def apply_scenario(G: nx.DiGraph, scenario_name: str, config: dict) -> nx.DiGrap
 
 def build_graph(config_path: str = None) -> tuple[nx.DiGraph, dict]:
     """
-    Build and return the baseline attack graph plus loaded config.
+    Build and return the baseline attack graph plus loaded config
 
     Returns:
         G      : nx.DiGraph with all nodes and edges at baseline weights
